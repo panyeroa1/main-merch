@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'category_widget.dart' show CategoryWidget;
+import 'category1_widget.dart' show Category1Widget;
 import 'package:flutter/material.dart';
 
-class CategoryModel extends FlutterFlowModel<CategoryWidget> {
+class Category1Model extends FlutterFlowModel<Category1Widget> {
   @override
   void initState(BuildContext context) {}
 

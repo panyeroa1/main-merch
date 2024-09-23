@@ -6,9 +6,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'create_merchant_model.dart';
 export 'create_merchant_model.dart';
 
@@ -40,9 +42,6 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
 
     _model.addressTextController ??= TextEditingController();
     _model.addressFocusNode ??= FocusNode();
-
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
@@ -159,25 +158,6 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation7': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(0.0, 110.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -196,6 +176,8 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -945,6 +927,23 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                                 child: TextFormField(
                                   controller: _model.addressTextController,
                                   focusNode: _model.addressFocusNode,
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.addressTextController',
+                                    const Duration(milliseconds: 2000),
+                                    () async {
+                                      safeSetState(() {
+                                        _model.addressTextController?.text =
+                                            _model.addressTextController.text;
+                                        _model.addressTextController
+                                                ?.selection =
+                                            TextSelection.collapsed(
+                                                offset: _model
+                                                    .addressTextController!
+                                                    .text
+                                                    .length);
+                                      });
+                                    },
+                                  ),
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -1035,120 +1034,6 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      constraints: const BoxConstraints(
-                        maxWidth: 500.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: BorderRadius.circular(12.0),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: SizedBox(
-                                width: 200.0,
-                                child: TextFormField(
-                                  controller: _model.textController4,
-                                  focusNode: _model.textFieldFocusNode,
-                                  autofocus: false,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    isDense: true,
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily),
-                                        ),
-                                    hintText: 'TextField',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily),
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
-                                      ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  validator: _model.textController4Validator
-                                      .asValidator(context),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation7']!),
-                  ),
-                  Padding(
-                    padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 12.0),
                     child: FFButtonWidget(
                       onPressed: () async {
@@ -1164,6 +1049,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                           image2: _model.uploadedFileUrl2,
                           image3: _model.uploadedFileUrl3,
                           openHours: '24 Hours',
+                          addressWith: FFAppState().merchantlocation,
                         ));
                         _model.merch = MerchantsRecord.getDocumentFromData(
                             createMerchantsRecordData(
@@ -1175,8 +1061,13 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                               image2: _model.uploadedFileUrl2,
                               image3: _model.uploadedFileUrl3,
                               openHours: '24 Hours',
+                              addressWith: FFAppState().merchantlocation,
                             ),
                             merchantsRecordReference);
+                        await Future.delayed(
+                            const Duration(milliseconds: 2000));
+
+                        context.pushNamed('ListMerchants');
 
                         safeSetState(() {});
                       },

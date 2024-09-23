@@ -184,6 +184,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ListMerchants',
           path: '/listMerchants',
           builder: (context, params) => const ListMerchantsWidget(),
+        ),
+        FFRoute(
+          name: 'Locatedhere',
+          path: '/locatedhere',
+          asyncParams: {
+            'location': getDoc(['merchants'], MerchantsRecord.fromSnapshot),
+          },
+          builder: (context, params) => LocatedhereWidget(
+            location: params.getParam(
+              'location',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'category1',
+          path: '/category1',
+          builder: (context, params) => const Category1Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -33,10 +33,6 @@ class CreateMerchantModel extends FlutterFlowModel<CreateMerchantWidget> {
   FocusNode? addressFocusNode;
   TextEditingController? addressTextController;
   String? Function(BuildContext, String?)? addressTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   MerchantsRecord? merch;
 
@@ -53,8 +49,5 @@ class CreateMerchantModel extends FlutterFlowModel<CreateMerchantWidget> {
 
     addressFocusNode?.dispose();
     addressTextController?.dispose();
-
-    textFieldFocusNode?.dispose();
-    textController4?.dispose();
   }
 }
