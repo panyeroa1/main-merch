@@ -1220,6 +1220,9 @@ class _ListMerchantsWidgetState extends State<ListMerchantsWidget> {
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodySmallFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts: GoogleFonts

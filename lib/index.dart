@@ -13,7 +13,6 @@ export '/pages/profile_update/profile_update_widget.dart'
     show ProfileUpdateWidget;
 export '/pages/product_list/product_list_widget.dart' show ProductListWidget;
 export '/pages/profile/profile_widget.dart' show ProfileWidget;
-export '/pages/category/category_widget.dart' show CategoryWidget;
 export '/pages/terms/terms_widget.dart' show TermsWidget;
 export '/pages/privacy/privacy_widget.dart' show PrivacyWidget;
 export '/pages/home_prime/home_prime_widget.dart' show HomePrimeWidget;
@@ -22,4 +21,5 @@ export '/pages/create_merchant/create_merchant_widget.dart'
 export '/pages/list_merchants/list_merchants_widget.dart'
     show ListMerchantsWidget;
 export '/pages/locatedhere/locatedhere_widget.dart' show LocatedhereWidget;
-export '/category1/category1_widget.dart' show Category1Widget;
+export '/pages/category1/category1_widget.dart' show Category1Widget;
+export '/pages/list_m/list_m_widget.dart' show ListMWidget;

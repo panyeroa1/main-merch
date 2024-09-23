@@ -250,7 +250,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('Category');
+                                  context.pushNamed('category1');
                                 },
                                 child: Material(
                                   color: Colors.transparent,
@@ -482,104 +482,92 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 16.0, 0.0, 16.0),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 286.0,
-                              decoration: const BoxDecoration(),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 4.0, 16.0, 0.0),
-                                child: StreamBuilder<List<MerchantsRecord>>(
-                                  stream: queryMerchantsRecord(),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          child: CircularProgressIndicator(
-                                            valueColor:
-                                                AlwaysStoppedAnimation<Color>(
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 16.0, 0.0, 16.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 286.0,
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 4.0, 16.0, 0.0),
+                                  child: StreamBuilder<List<MerchantsRecord>>(
+                                    stream: queryMerchantsRecord(),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    }
-                                    List<MerchantsRecord>
-                                        listViewMerchantsRecordList =
-                                        snapshot.data!;
+                                        );
+                                      }
+                                      List<MerchantsRecord>
+                                          listViewMerchantsRecordList =
+                                          snapshot.data!;
 
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount:
-                                          listViewMerchantsRecordList.length,
-                                      itemBuilder: (context, listViewIndex) {
-                                        final listViewMerchantsRecord =
-                                            listViewMerchantsRecordList[
-                                                listViewIndex];
-                                        return Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 16.0, 0.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    'Details',
-                                                    queryParameters: {
-                                                      'merch1': serializeParam(
-                                                        listViewMerchantsRecord,
-                                                        ParamType.Document,
-                                                      ),
-                                                    }.withoutNulls,
-                                                    extra: <String, dynamic>{
-                                                      'merch1':
+                                      return ListView.builder(
+                                        padding: EdgeInsets.zero,
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount:
+                                            listViewMerchantsRecordList.length,
+                                        itemBuilder: (context, listViewIndex) {
+                                          final listViewMerchantsRecord =
+                                              listViewMerchantsRecordList[
+                                                  listViewIndex];
+                                          return Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 16.0, 0.0),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                      'Details',
+                                                      queryParameters: {
+                                                        'merch1':
+                                                            serializeParam(
                                                           listViewMerchantsRecord,
-                                                    },
-                                                  );
-                                                },
-                                                child: Material(
-                                                  color: Colors.transparent,
-                                                  elevation: 8.0,
-                                                  shape: const RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(8.0),
-                                                      bottomRight:
-                                                          Radius.circular(8.0),
-                                                      topLeft:
-                                                          Radius.circular(8.0),
-                                                      topRight:
-                                                          Radius.circular(8.0),
-                                                    ),
-                                                  ),
-                                                  child: Container(
-                                                    width: 264.0,
-                                                    height: 277.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
+                                                          ParamType.Document,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'merch1':
+                                                            listViewMerchantsRecord,
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Material(
+                                                    color: Colors.transparent,
+                                                    elevation: 8.0,
+                                                    shape:
+                                                        const RoundedRectangleBorder(
                                                       borderRadius:
-                                                          const BorderRadius.only(
+                                                          BorderRadius.only(
                                                         bottomLeft:
                                                             Radius.circular(
                                                                 8.0),
@@ -593,217 +581,92 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                             Radius.circular(
                                                                 8.0),
                                                       ),
-                                                      border: Border.all(
-                                                        color:
-                                                            const Color(0xA7B3B3B3),
-                                                      ),
                                                     ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              const BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                          ),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              listViewMerchantsRecord
-                                                                  .image1,
-                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/wvsnu5o9ut1f/4.png',
+                                                    child: Container(
+                                                      width: 295.0,
+                                                      height: 277.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  8.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  8.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  8.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  8.0),
+                                                        ),
+                                                        border: Border.all(
+                                                          color:
+                                                              const Color(0xA7B3B3B3),
+                                                        ),
+                                                      ),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                const BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      8.0),
                                                             ),
-                                                            width: 265.0,
-                                                            height: 187.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  listViewMerchantsRecord
-                                                                      .companyName,
-                                                                  'Merchant',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                    ),
+                                                            child:
+                                                                Image.network(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                listViewMerchantsRecord
+                                                                    .image1,
+                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/wvsnu5o9ut1f/4.png',
                                                               ),
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
-                                                                child:
-                                                                    FFButtonWidget(
-                                                                  onPressed:
-                                                                      () async {
-                                                                    context
-                                                                        .pushNamed(
-                                                                      'Locatedhere',
-                                                                      queryParameters:
-                                                                          {
-                                                                        'location':
-                                                                            serializeParam(
-                                                                          listViewMerchantsRecord,
-                                                                          ParamType
-                                                                              .Document,
-                                                                        ),
-                                                                      }.withoutNulls,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        'location':
-                                                                            listViewMerchantsRecord,
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                  text:
-                                                                      'Location',
-                                                                  icon: const Icon(
-                                                                    Icons
-                                                                        .location_pin,
-                                                                    size: 15.0,
-                                                                  ),
-                                                                  options:
-                                                                      FFButtonOptions(
-                                                                    height:
-                                                                        26.0,
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            16.0,
-                                                                            0.0,
-                                                                            16.0,
-                                                                            0.0),
-                                                                    iconPadding:
-                                                                        const EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          fontSize:
-                                                                              12.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
-                                                                        ),
-                                                                    elevation:
+                                                              width: double
+                                                                  .infinity,
+                                                              height: 187.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        12.0,
                                                                         0.0,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      8.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Text(
-                                                                'Opens: ${valueOrDefault<String>(
-                                                                  listViewMerchantsRecord
-                                                                      .openHours,
-                                                                  ' 24 Hours',
-                                                                )}',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                    ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
-                                                                child: Text(
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
                                                                   valueOrDefault<
                                                                       String>(
                                                                     listViewMerchantsRecord
-                                                                        .city,
-                                                                    'Pasig City',
+                                                                        .companyName,
+                                                                    'Merchant',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -817,48 +680,191 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ),
-                                                            ],
+                                                                Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      FFButtonWidget(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'Locatedhere',
+                                                                        queryParameters:
+                                                                            {
+                                                                          'location':
+                                                                              serializeParam(
+                                                                            listViewMerchantsRecord,
+                                                                            ParamType.Document,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                        extra: <String,
+                                                                            dynamic>{
+                                                                          'location':
+                                                                              listViewMerchantsRecord,
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                    text:
+                                                                        'Location',
+                                                                    icon: const Icon(
+                                                                      Icons
+                                                                          .location_pin,
+                                                                      size:
+                                                                          15.0,
+                                                                    ),
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      height:
+                                                                          26.0,
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      textStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleSmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                          ),
+                                                                      elevation:
+                                                                          0.0,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  'Opens: ${valueOrDefault<String>(
+                                                                    listViewMerchantsRecord
+                                                                        .openHours,
+                                                                    ' 24 Hours',
+                                                                  )}',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      listViewMerchantsRecord
+                                                                          .city,
+                                                                      'Pasig City',
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: AutoSizeText(
-                              'Prosperity Prime Global Merchants',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodySmallFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodySmallFamily),
-                                  ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
+                              child: AutoSizeText(
+                                'Prosperity Prime Global Merchants',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodySmallFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmallFamily),
+                                    ),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     StreamBuilder<List<MerchantsRecord>>(

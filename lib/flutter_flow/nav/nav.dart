@@ -154,11 +154,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const ProfileWidget(),
         ),
         FFRoute(
-          name: 'Category',
-          path: '/category',
-          builder: (context, params) => const CategoryWidget(),
-        ),
-        FFRoute(
           name: 'Terms',
           path: '/terms',
           builder: (context, params) => const TermsWidget(),
@@ -202,6 +197,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'category1',
           path: '/category1',
           builder: (context, params) => const Category1Widget(),
+        ),
+        FFRoute(
+          name: 'ListM',
+          path: '/listM',
+          asyncParams: {
+            'merchantsCate': getDoc(['category'], CategoryRecord.fromSnapshot),
+          },
+          builder: (context, params) => ListMWidget(
+            merchantsCate: params.getParam(
+              'merchantsCate',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
