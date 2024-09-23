@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -20,9 +19,7 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     secureStorage = const FlutterSecureStorage();
     await _safeInitAsync(() async {
-      _merchantlocation = latLngFromString(
-              await secureStorage.getString('ff_merchantlocation')) ??
-          _merchantlocation;
+      _located = await secureStorage.getString('ff_located') ?? _located;
     });
   }
 
@@ -39,17 +36,15 @@ class FFAppState extends ChangeNotifier {
     _choices = value;
   }
 
-  LatLng? _merchantlocation = const LatLng(14.5736192, 121.0784984);
-  LatLng? get merchantlocation => _merchantlocation;
-  set merchantlocation(LatLng? value) {
-    _merchantlocation = value;
-    value != null
-        ? secureStorage.setString('ff_merchantlocation', value.serialize())
-        : secureStorage.remove('ff_merchantlocation');
+  String _located = 'Pasig City';
+  String get located => _located;
+  set located(String value) {
+    _located = value;
+    secureStorage.setString('ff_located', value);
   }
 
-  void deleteMerchantlocation() {
-    secureStorage.delete(key: 'ff_merchantlocation');
+  void deleteLocated() {
+    secureStorage.delete(key: 'ff_located');
   }
 }
 
