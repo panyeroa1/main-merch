@@ -7,12 +7,7 @@ import 'list_m_model.dart';
 export 'list_m_model.dart';
 
 class ListMWidget extends StatefulWidget {
-  const ListMWidget({
-    super.key,
-    required this.merchantsCate,
-  });
-
-  final CategoryRecord? merchantsCate;
+  const ListMWidget({super.key});
 
   @override
   State<ListMWidget> createState() => _ListMWidgetState();
@@ -66,10 +61,7 @@ class _ListMWidgetState extends State<ListMWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                 child: Text(
-                  valueOrDefault<String>(
-                    widget.merchantsCate?.hasName().toString(),
-                    'byyy',
-                  ),
+                  'Foods',
                   style: FlutterFlowTheme.of(context).headlineLarge.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).headlineLargeFamily,
@@ -100,10 +92,7 @@ class _ListMWidgetState extends State<ListMWidget> {
               stream: queryMerchantsRecord(
                 queryBuilder: (merchantsRecord) => merchantsRecord.where(
                   'category',
-                  isEqualTo: valueOrDefault<String>(
-                    widget.merchantsCate?.hasName().toString(),
-                    'hhgiu',
-                  ),
+                  isEqualTo: 'Food',
                 ),
               ),
               builder: (context, snapshot) {
@@ -142,13 +131,13 @@ class _ListMWidgetState extends State<ListMWidget> {
                           context.pushNamed(
                             'Details',
                             queryParameters: {
-                              'merch1': serializeParam(
+                              'merchFood': serializeParam(
                                 columnMerchantsRecord,
                                 ParamType.Document,
                               ),
                             }.withoutNulls,
                             extra: <String, dynamic>{
-                              'merch1': columnMerchantsRecord,
+                              'merchFood': columnMerchantsRecord,
                             },
                           );
                         },
@@ -210,7 +199,7 @@ class _ListMWidgetState extends State<ListMWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Friend Request',
+                                          'All food category',
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
@@ -232,7 +221,7 @@ class _ListMWidgetState extends State<ListMWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
-                                            'John Smith has requested to be friends.',
+                                            'Kain Kain',
                                             maxLines: 2,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -286,7 +275,7 @@ class _ListMWidgetState extends State<ListMWidget> {
                                                         BorderRadius.circular(
                                                             10.0),
                                                     child: Image.network(
-                                                      'https://images.unsplash.com/photo-1529978755210-7f13333beb13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxsZWdvfGVufDB8fHx8MTcyNzA4ODY0NXww&ixlib=rb-4.0.3&q=80&w=1080',
+                                                      'https://images.unsplash.com/photo-1487790343276-2fe56a7d9439?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNXx8Zm9vZHxlbnwwfHx8fDE3MjcxMTA1MzR8MA&ixlib=rb-4.0.3&q=80&w=1080',
                                                       width: 44.0,
                                                       height: 44.0,
                                                       fit: BoxFit.cover,

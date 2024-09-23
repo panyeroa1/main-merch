@@ -549,14 +549,14 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                     context.pushNamed(
                                                       'Details',
                                                       queryParameters: {
-                                                        'merch1':
+                                                        'merchFood':
                                                             serializeParam(
                                                           listViewMerchantsRecord,
                                                           ParamType.Document,
                                                         ),
                                                       }.withoutNulls,
                                                       extra: <String, dynamic>{
-                                                        'merch1':
+                                                        'merchFood':
                                                             listViewMerchantsRecord,
                                                       },
                                                     );
@@ -912,13 +912,14 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                         context.pushNamed(
                                           'Details',
                                           queryParameters: {
-                                            'merch1': serializeParam(
+                                            'merchFood': serializeParam(
                                               listViewMerchantsRecord,
                                               ParamType.Document,
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            'merch1': listViewMerchantsRecord,
+                                            'merchFood':
+                                                listViewMerchantsRecord,
                                           },
                                         );
                                       },

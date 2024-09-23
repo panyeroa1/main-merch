@@ -14,10 +14,10 @@ export 'details_model.dart';
 class DetailsWidget extends StatefulWidget {
   const DetailsWidget({
     super.key,
-    required this.merch1,
+    required this.merchFood,
   });
 
-  final MerchantsRecord? merch1;
+  final MerchantsRecord? merchFood;
 
   @override
   State<DetailsWidget> createState() => _DetailsWidgetState();
@@ -68,7 +68,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
           ),
           title: Text(
             valueOrDefault<String>(
-              widget.merch1?.companyName,
+              widget.merchFood?.companyName,
               'name',
             ).maybeHandleOverflow(maxChars: 22),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -166,7 +166,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
                                         valueOrDefault<String>(
-                                          widget.merch1?.image2,
+                                          widget.merchFood?.image2,
                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/61lzskqkotg4/6.png',
                                         ),
                                         width: 200.0,
@@ -178,7 +178,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
                                         valueOrDefault<String>(
-                                          widget.merch1?.image1,
+                                          widget.merchFood?.image1,
                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
                                         ),
                                         width: 200.0,
@@ -190,7 +190,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
                                         valueOrDefault<String>(
-                                          widget.merch1?.image3,
+                                          widget.merchFood?.image3,
                                           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/wvsnu5o9ut1f/4.png',
                                         ),
                                         width: 200.0,
@@ -233,7 +233,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                             ),
                             child: Image.network(
                               valueOrDefault<String>(
-                                widget.merch1?.image1,
+                                widget.merchFood?.image1,
                                 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/on3f25qvmyyj/prosperity_prime.gif',
                               ),
                               width: double.infinity,
@@ -257,7 +257,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                     children: [
                                       Text(
                                         valueOrDefault<String>(
-                                          widget.merch1?.companyName,
+                                          widget.merchFood?.companyName,
                                           'Merchant Name',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -349,7 +349,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                 ),
                                 Text(
                                   valueOrDefault<String>(
-                                    widget.merch1?.describe,
+                                    widget.merchFood?.describe,
                                     'This description provides a clear, informative structure that can be adapted for any merchant by filling in the relevant details.',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -397,7 +397,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                           print('Button pressed ...');
                                         },
                                         text: valueOrDefault<String>(
-                                          widget.merch1?.city,
+                                          widget.merchFood?.city,
                                           'Pasig City',
                                         ),
                                         options: FFButtonOptions(
@@ -479,7 +479,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                     ),
                     child: AuthUserStreamWidget(
                       builder: (context) => Builder(builder: (context) {
-                        final googleMapMarker = widget.merch1?.addressWith;
+                        final googleMapMarker = widget.merchFood?.addressWith;
                         return FlutterFlowGoogleMap(
                           controller: _model.googleMapsController,
                           onCameraIdle: (latLng) => safeSetState(

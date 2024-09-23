@@ -125,11 +125,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Details',
           path: '/details',
           asyncParams: {
-            'merch1': getDoc(['merchants'], MerchantsRecord.fromSnapshot),
+            'merchFood': getDoc(['merchants'], MerchantsRecord.fromSnapshot),
           },
           builder: (context, params) => DetailsWidget(
-            merch1: params.getParam(
-              'merch1',
+            merchFood: params.getParam(
+              'merchFood',
               ParamType.Document,
             ),
           ),
@@ -201,15 +201,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ListM',
           path: '/listM',
-          asyncParams: {
-            'merchantsCate': getDoc(['category'], CategoryRecord.fromSnapshot),
-          },
-          builder: (context, params) => ListMWidget(
-            merchantsCate: params.getParam(
-              'merchantsCate',
-              ParamType.Document,
-            ),
-          ),
+          builder: (context, params) => const ListMWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
