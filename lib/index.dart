@@ -17,3 +17,5 @@ export '/pages/category/category_widget.dart' show CategoryWidget;
 export '/pages/terms/terms_widget.dart' show TermsWidget;
 export '/pages/privacy/privacy_widget.dart' show PrivacyWidget;
 export '/pages/home_prime/home_prime_widget.dart' show HomePrimeWidget;
+export '/create_merchant/create_merchant_widget.dart' show CreateMerchantWidget;
+export '/list_merchants/list_merchants_widget.dart' show ListMerchantsWidget;

@@ -174,6 +174,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'HomePrime')
               : const HomePrimeWidget(),
+        ),
+        FFRoute(
+          name: 'CreateMerchant',
+          path: '/createMerchant',
+          builder: (context, params) => const CreateMerchantWidget(),
+        ),
+        FFRoute(
+          name: 'ListMerchants',
+          path: '/listMerchants',
+          builder: (context, params) => const ListMerchantsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
