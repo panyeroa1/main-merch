@@ -1954,7 +1954,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .labelMediumFamily,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                                .primaryBackground,
                                             letterSpacing: 0.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(

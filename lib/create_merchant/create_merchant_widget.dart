@@ -211,7 +211,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
             buttonSize: 60.0,
             icon: Icon(
               Icons.add_business_outlined,
-              color: FlutterFlowTheme.of(context).secondaryText,
+              color: FlutterFlowTheme.of(context).primaryBackground,
               size: 30.0,
             ),
             onPressed: () async {
@@ -222,6 +222,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
             'Add New Merchant',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                   useGoogleFonts: GoogleFonts.asMap().containsKey(
