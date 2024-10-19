@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/components/logo/logo_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'auth_create_model.dart';
@@ -933,6 +934,7 @@ class _AuthCreateWidgetState extends State<AuthCreateWidget>
                                               await Future.delayed(
                                                   const Duration(
                                                       milliseconds: 3000));
+                                              HapticFeedback.heavyImpact();
 
                                               context.pushNamedAuth(
                                                   'HomePrime', context.mounted);

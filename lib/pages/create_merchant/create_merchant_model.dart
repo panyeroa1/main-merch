@@ -25,6 +25,10 @@ class CreateMerchantModel extends FlutterFlowModel<CreateMerchantWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
+  // State field(s) for operationg widget.
+  FocusNode? operationgFocusNode;
+  TextEditingController? operationgTextController;
+  String? Function(BuildContext, String?)? operationgTextControllerValidator;
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
@@ -55,6 +59,9 @@ class CreateMerchantModel extends FlutterFlowModel<CreateMerchantWidget> {
   void dispose() {
     nameFocusNode?.dispose();
     nameTextController?.dispose();
+
+    operationgFocusNode?.dispose();
+    operationgTextController?.dispose();
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();

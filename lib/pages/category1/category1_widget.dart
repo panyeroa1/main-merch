@@ -125,12 +125,17 @@ class _Category1WidgetState extends State<Category1Widget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(12.0),
+                                    border: Border.all(
+                                      color: const Color(0x4EB3B3B3),
+                                    ),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 8.0, 12.0, 8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
@@ -164,6 +169,7 @@ class _Category1WidgetState extends State<Category1Widget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyLargeFamily,
+                                                          fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()

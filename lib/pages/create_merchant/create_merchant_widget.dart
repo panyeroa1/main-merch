@@ -36,6 +36,9 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
     _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
 
+    _model.operationgTextController ??= TextEditingController();
+    _model.operationgFocusNode ??= FocusNode();
+
     _model.descriptionTextController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
 
@@ -205,6 +208,25 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
         ],
       ),
       'containerOnPageLoadAnimation9': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 110.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation10': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -478,7 +500,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: const Color(0x6BB3B3B3),
                             width: 2.0,
                           ),
                         ),
@@ -586,7 +608,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: const Color(0x6BB3B3B3),
                             width: 2.0,
                           ),
                         ),
@@ -694,7 +716,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: const Color(0x6BB3B3B3),
                             width: 2.0,
                           ),
                         ),
@@ -746,7 +768,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: const Color(0x6BB3B3B3),
                           width: 2.0,
                         ),
                       ),
@@ -860,7 +882,122 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: const Color(0x6BB3B3B3),
+                          width: 2.0,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: SizedBox(
+                                width: 200.0,
+                                child: TextFormField(
+                                  controller: _model.operationgTextController,
+                                  focusNode: _model.operationgFocusNode,
+                                  autofocus: false,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    isDense: true,
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMediumFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily),
+                                        ),
+                                    hintText: 'Operating Hours',
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMediumFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily),
+                                        ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
+                                      ),
+                                  cursorColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  validator: _model
+                                      .operationgTextControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation5']!),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      constraints: const BoxConstraints(
+                        maxWidth: 500.0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(12.0),
+                        border: Border.all(
+                          color: const Color(0x6BB3B3B3),
                           width: 2.0,
                         ),
                       ),
@@ -961,7 +1098,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         ),
                       ),
                     ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation5']!),
+                        animationsMap['containerOnPageLoadAnimation6']!),
                   ),
                   Padding(
                     padding:
@@ -975,7 +1112,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: const Color(0x6BB3B3B3),
                           width: 2.0,
                         ),
                       ),
@@ -1093,7 +1230,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         ),
                       ),
                     ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation6']!),
+                        animationsMap['containerOnPageLoadAnimation7']!),
                   ),
                   Padding(
                     padding:
@@ -1107,7 +1244,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: const Color(0x6BB3B3B3),
                           width: 2.0,
                         ),
                       ),
@@ -1227,7 +1364,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         ),
                       ),
                     ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation7']!),
+                        animationsMap['containerOnPageLoadAnimation8']!),
                   ),
                   Padding(
                     padding:
@@ -1241,7 +1378,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: const Color(0x6BB3B3B3),
                           width: 2.0,
                         ),
                       ),
@@ -1361,7 +1498,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         ),
                       ),
                     ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation8']!),
+                        animationsMap['containerOnPageLoadAnimation9']!),
                   ),
                   Padding(
                     padding:
@@ -1375,7 +1512,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
                         border: Border.all(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: const Color(0x6BB3B3B3),
                           width: 2.0,
                         ),
                       ),
@@ -1495,7 +1632,7 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         ),
                       ),
                     ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation9']!),
+                        animationsMap['containerOnPageLoadAnimation10']!),
                   ),
                   Padding(
                     padding:
@@ -1507,33 +1644,34 @@ class _CreateMerchantWidgetState extends State<CreateMerchantWidget>
                         await merchantsRecordReference
                             .set(createMerchantsRecordData(
                           companyName: _model.nameTextController.text,
-                          describe: _model.descriptionTextController.text,
+                          describe: _model.operationgTextController.text,
                           addressWithout: _model.addressTextController.text,
                           createdAt: getCurrentTimestamp,
                           image1: _model.uploadedFileUrl1,
                           image2: _model.uploadedFileUrl2,
                           image3: _model.uploadedFileUrl3,
-                          openHours: '24 Hours',
-                          city: _model.addresslongcTextController.text,
+                          city: '24 Hours',
+                          openHours: _model.operationgTextController.text,
                         ));
                         _model.merchLocate =
                             MerchantsRecord.getDocumentFromData(
                                 createMerchantsRecordData(
                                   companyName: _model.nameTextController.text,
                                   describe:
-                                      _model.descriptionTextController.text,
+                                      _model.operationgTextController.text,
                                   addressWithout:
                                       _model.addressTextController.text,
                                   createdAt: getCurrentTimestamp,
                                   image1: _model.uploadedFileUrl1,
                                   image2: _model.uploadedFileUrl2,
                                   image3: _model.uploadedFileUrl3,
-                                  openHours: '24 Hours',
-                                  city: _model.addresslongcTextController.text,
+                                  city: '24 Hours',
+                                  openHours:
+                                      _model.operationgTextController.text,
                                 ),
                                 merchantsRecordReference);
                         FFAppState().located =
-                            _model.addressTextController.text;
+                            _model.merchLocate!.addressWith!.toString();
                         safeSetState(() {});
 
                         context.pushNamed('ListMerchants');

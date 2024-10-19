@@ -76,6 +76,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                   color: FlutterFlowTheme.of(context).alternate,
                   fontSize: 18.0,
                   letterSpacing: 0.0,
+                  fontWeight: FontWeight.w500,
                   useGoogleFonts: GoogleFonts.asMap().containsKey(
                       FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
@@ -269,7 +270,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
-                                              fontSize: 18.0,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -357,6 +358,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                       .override(
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .labelSmallFamily,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -380,7 +382,9 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: const Color(0xFFEA1414),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,

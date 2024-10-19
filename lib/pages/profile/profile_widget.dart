@@ -1024,8 +1024,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       await currentUserReference!
                                                           .update(
                                                               createUsersRecordData(
-                                                        photoUrl: _model
-                                                            .uploadedFileUrl,
+                                                        photoUrl:
+                                                            valueOrDefault<
+                                                                String>(
+                                                          _model
+                                                              .uploadedFileUrl,
+                                                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/oik71vyih9s3/download_(1).jpeg',
+                                                        ),
                                                       ));
                                                       ScaffoldMessenger.of(
                                                               context)

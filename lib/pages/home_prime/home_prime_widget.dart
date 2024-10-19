@@ -152,7 +152,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                 primary: false,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
                       padding:
@@ -161,7 +161,7 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
@@ -731,9 +731,8 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
+                                                                      color: const Color(
+                                                                          0xFFDA8C15),
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .titleSmall
@@ -996,8 +995,12 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                     topRight:
                                                         Radius.circular(0.0),
                                                   ),
-                                                  child: Image.asset(
-                                                    'assets/images/dfjsb_6.png',
+                                                  child: Image.network(
+                                                    valueOrDefault<String>(
+                                                      listViewMerchantsRecord
+                                                          .image1,
+                                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/tudds-ccd0wn/assets/wvsnu5o9ut1f/4.png',
+                                                    ),
                                                     width: double.infinity,
                                                     height: double.infinity,
                                                     fit: BoxFit.cover,
@@ -1026,10 +1029,13 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                     0.0,
                                                                     0.0),
                                                         child: AutoSizeText(
-                                                          listViewMerchantsRecord
-                                                              .companyName
-                                                              .maybeHandleOverflow(
-                                                                  maxChars: 14),
+                                                          valueOrDefault<
+                                                              String>(
+                                                            listViewMerchantsRecord
+                                                                .companyName,
+                                                            'Prime Merch',
+                                                          ).maybeHandleOverflow(
+                                                              maxChars: 14),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .titleLarge
@@ -1086,7 +1092,11 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'Open at ${listViewMerchantsRecord.openHours}',
+                                                                'Open at ${valueOrDefault<String>(
+                                                                  listViewMerchantsRecord
+                                                                      .openHours,
+                                                                  '24 Hours',
+                                                                )}',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMedium
@@ -1144,8 +1154,12 @@ class _HomePrimeWidgetState extends State<HomePrimeWidget>
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                listViewMerchantsRecord
-                                                                    .city,
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  listViewMerchantsRecord
+                                                                      .city,
+                                                                  'City of Dreams',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMedium
